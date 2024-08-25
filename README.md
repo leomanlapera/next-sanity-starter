@@ -1,36 +1,99 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Next Sanity Starter
+
+A powerful starter project integrating Next.js with Sanity CMS. This boilerplate offers a solid foundation for developing modern, content-rich web applications with features like server-side rendering, static site generation, and a flexible CMS.
+
+## Features
+
+- **Next.js**: A React framework for building dynamic user interfaces with support for server-side rendering, static site generation, and API routes.
+- **Sanity**: A headless CMS that provides a customizable and intuitive content management studio.
+- **TypeScript**: Type-safe development with TypeScript for enhanced code quality and maintainability.
+- **Tailwind CSS**: A utility-first CSS framework that speeds up UI development with a highly customizable design system.
+- **Sanity Studio**: An admin interface for creating, managing, and organizing your Sanity content.
+
+## Prerequisites
+
+- **Node.js**: Version 14 or later
+- **npm** or **Yarn**: Package managers for handling dependencies
+- **Sanity.io Project**: Sign up at [Sanity.io](https://www.sanity.io/) if you don’t have a project set up yet.
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the Repository
+
+Start by cloning the repository to your local machine:
+
+```bash
+git clone https://github.com/leomanlapera/next-sanity-starter.git
+cd next-sanity-starter
+```
+
+### 2. Install Dependencies
+
+Install the necessary dependencies using npm or Yarn:
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### 3. Set Up Sanity
+
+1. **Create a Sanity Project**: Follow [Sanity’s Getting Started guide](https://www.sanity.io/docs/getting-started) to create a new project if you haven’t done so already.
+
+2. **Add Sanity API Credentials**:
+
+   - Create a `.env.local` file in the root directory of your project.
+   - Add the following environment variables to the `.env.local` file:
+
+   ```env
+   NEXT_PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
+   NEXT_PUBLIC_SANITY_DATASET=your-sanity-dataset
+   NEXT_PUBLIC_SANITY_API_VERSION=your-sanity-api-version
+   SANITY_HOOK_SECRET=your-sanity-secret-hook
+   SANITY_ACCESS_TOKEN=your-sanity-access-token
+   NEXT_PUBLIC_DOMAIN_URL=your-domain-url
+   ```
+
+### 4. Run the Development Server
+
+Start the development server to view your application locally:
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to see the app in action.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### 5. Build and Deploy
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+To build the application for production use:
 
-## Learn More
+```bash
+npm run build
+# or
+yarn build
+```
 
-To learn more about Next.js, take a look at the following resources:
+To preview the production build locally:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run start
+# or
+yarn start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+### Configuration
 
-## Deploy on Vercel
+- **`next.config.js`**: Configure Next.js settings here.
+- **Sanity Studio Configurations**: Located in the `studio` directory.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## License
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+---
+
+Feel free to further customize the README to fit any additional project-specific information or personal preferences!
