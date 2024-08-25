@@ -1,13 +1,13 @@
 import React, { cache } from "react";
 import { sanityFetch } from "@/sanity/sanity.config";
 import { homeQuery } from "@/sanity/sanity.query";
-import { Home as HomeProps } from "@/sanity/sanity.types";
+import { Home } from "@/sanity/sanity.types";
 import { notFound } from "next/navigation";
 
 // Cache the fetchData function to avoid redundant fetches
 const fetchData = cache(async () => {
   try {
-    const page = await sanityFetch<HomeProps>({
+    const page = await sanityFetch<Home>({
       query: homeQuery,
       tags: ["home"],
     });
@@ -18,15 +18,13 @@ const fetchData = cache(async () => {
   }
 });
 
-export default async function Home() {
+export default async function Index() {
   const page = await fetchData();
 
   if (!page) {
     notFound();
     return null; // Ensure nothing is rendered if the page is not found
   }
-
-  console.log(page);
 
   return (
     <React.Fragment>

@@ -47,6 +47,11 @@ const blog = defineType({
   fields: [
     ...seoFields,
     defineField({
+      name: "image",
+      type: "image",
+      options: { hotspot: true },
+    }),
+    defineField({
       name: "content",
       type: "array",
       of: [{ type: "block" }],
