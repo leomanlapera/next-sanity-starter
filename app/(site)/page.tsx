@@ -1,25 +1,14 @@
-import React, { cache } from "react";
+import React from "react";
 import { sanityFetch } from "@/sanity/sanity.config";
 import { homeQuery } from "@/sanity/sanity.query";
 import { Home } from "@/sanity/sanity.types";
 import { notFound } from "next/navigation";
 
-// Cache the fetchData function to avoid redundant fetches
-const fetchData = cache(async () => {
-  try {
-    const page = await sanityFetch<Home>({
-      query: homeQuery,
-      tags: ["home"],
-    });
-    return page;
-  } catch (error) {
-    console.error("Failed to fetch home data:", error);
-    return null;
-  }
-});
-
 export default async function Index() {
-  const page = await fetchData();
+  const page = await sanityFetch<Home>({
+    query: homeQuery,
+    tags: ["home"],
+  });
 
   if (!page) {
     notFound();
@@ -35,7 +24,10 @@ export default async function Index() {
 }
 
 export async function generateMetadata() {
-  const page = await fetchData();
+  const page = await sanityFetch<Home>({
+    query: homeQuery,
+    tags: ["home"],
+  });
 
   if (!page) {
     notFound();
