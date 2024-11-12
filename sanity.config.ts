@@ -1,7 +1,7 @@
 import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./sanity/sanity.schema";
+import { schemaTypes } from "./sanity/schema";
 
 // Ensure required environment variables are set
 const projectId = process.env.NEXT_PUBLIC_SANITY_PROJECT_ID ?? "";

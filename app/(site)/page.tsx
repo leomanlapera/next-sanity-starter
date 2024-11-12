@@ -1,33 +1,21 @@
 import React from "react";
-import { sanityFetch } from "@/sanity/sanity.config";
-import { homeQuery } from "@/sanity/sanity.query";
-import { Home } from "@/sanity/sanity.types";
 import { notFound } from "next/navigation";
+import { sanityFetch } from "@/sanity/lib/live";
+import { homeQuery } from "@/sanity/lib/queries";
 
 export default async function Index() {
-  const page = await sanityFetch<Home>({
-    query: homeQuery,
-    tags: ["home"],
-  });
+  const { data: page } = await sanityFetch({ query: homeQuery });
 
   if (!page) {
     notFound();
-    return null; // Ensure nothing is rendered if the page is not found
+    return null;
   }
 
-  return (
-    <React.Fragment>
-      {/* Render home content here */}
-      Home
-    </React.Fragment>
-  );
+  return <React.Fragment>{page.title}</React.Fragment>;
 }
 
 export async function generateMetadata() {
-  const page = await sanityFetch<Home>({
-    query: homeQuery,
-    tags: ["home"],
-  });
+  const { data: page } = await sanityFetch({ query: homeQuery });
 
   if (!page) {
     notFound();
@@ -35,11 +23,8 @@ export async function generateMetadata() {
   }
 
   return {
-    title: page.title ?? "Default Title",
-    description: page.description ?? "Default Description",
-    alternates: {
-      canonical:
-        process.env.NEXT_PUBLIC_DOMAIN_URL ?? "https://default-url.com",
-    },
+    title: `${page.title} | Website Name`,
+    description: page.description,
+    alternates: { canonical: process.env.NEXT_PUBLIC_DOMAIN_URL },
   };
 }
