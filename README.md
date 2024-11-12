@@ -49,9 +49,7 @@ yarn install
    ```env
    NEXT_PUBLIC_SANITY_PROJECT_ID=your-sanity-project-id
    NEXT_PUBLIC_SANITY_DATASET=your-sanity-dataset
-   NEXT_PUBLIC_SANITY_API_VERSION=your-sanity-api-version
-   SANITY_HOOK_SECRET=your-sanity-secret-hook
-   SANITY_ACCESS_TOKEN=your-sanity-access-token
+   SANITY_API_READ_TOKEN=your-sanity-access-token
    NEXT_PUBLIC_DOMAIN_URL=your-domain-url
    ```
 

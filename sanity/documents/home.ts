@@ -1,5 +1,5 @@
 import { defineType } from "sanity";
-import { seoFields } from "../sanity.fields";
+import { seoFields } from "../fields";
 
 const home = defineType({
   name: "home",
