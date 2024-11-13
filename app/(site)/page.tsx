@@ -15,7 +15,11 @@ export default async function Index() {
 }
 
 export async function generateMetadata() {
-  const { data: page } = await sanityFetch({ query: homeQuery });
+  const { data: page } = await sanityFetch({
+    query: homeQuery,
+    // Metadata should never contain stega
+    stega: false,
+  });
 
   if (!page) {
     notFound();
