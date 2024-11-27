@@ -5,13 +5,14 @@ import { urlForImage } from "@/sanity/lib/utils";
 interface Props {
   image: any;
   priority?: boolean;
+  className?: string;
 }
 
 export default function CoverImage(props: Props) {
-  const { image: source, priority } = props;
+  const { image: source, priority, className = "aspect-video" } = props;
   const image = source?.asset?._ref ? (
     <Image
-      className="rounded-2xl object-cover"
+      className="object-cover"
       fill={true}
       alt={stegaClean(source?.alt) || ""}
       src={
@@ -28,5 +29,5 @@ export default function CoverImage(props: Props) {
     <div className="bg-slate-50" style={{ paddingTop: "100%" }} />
   );
 
-  return <div className="relative aspect-video">{image}</div>;
+  return <div className={`relative ${className}`}>{image}</div>;
 }
