@@ -1,10 +1,11 @@
 import React from "react";
 import { notFound } from "next/navigation";
 import { sanityFetch } from "@/sanity/lib/live";
-import { homeQuery } from "@/sanity/lib/queries";
+import { HOME_QUERY } from "@/sanity/lib/queries";
+import { Home } from "@/sanity.types";
 
 export default async function Index() {
-  const { data: page } = await sanityFetch({ query: homeQuery });
+  const { data: page } = await sanityFetch<Home>({ query: HOME_QUERY });
 
   if (!page) {
     notFound();
@@ -15,8 +16,8 @@ export default async function Index() {
 }
 
 export async function generateMetadata() {
-  const { data: page } = await sanityFetch({
-    query: homeQuery,
+  const { data: page } = await sanityFetch<Home>({
+    query: HOME_QUERY,
     // Metadata should never contain stega
     stega: false,
   });
