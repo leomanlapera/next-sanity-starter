@@ -51,6 +51,8 @@ yarn install
    NEXT_PUBLIC_SANITY_DATASET=your-sanity-dataset
    SANITY_API_READ_TOKEN=your-sanity-access-token
    NEXT_PUBLIC_DOMAIN_URL=your-domain-url
+   SENDGRID_MAIL_TO=email
+   SENDGRID_API_KEY=api-key
    ```
 
 ### 4. Run the Development Server

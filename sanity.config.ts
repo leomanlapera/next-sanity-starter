@@ -11,7 +11,7 @@ const dataset = process.env.NEXT_PUBLIC_SANITY_DATASET ?? "";
 const singletonActions = new Set(["publish", "discardChanges", "restore"]);
 
 // Define the singleton document types
-const singletonTypes = new Set(["settings", "home"]);
+const singletonTypes = new Set(["home", "settings"]);
 
 const config = defineConfig({
   projectId,
@@ -26,16 +26,16 @@ const config = defineConfig({
           .title("Content")
           .items([
             S.listItem()
+              .title("Home")
+              .id("home")
+              .child(S.document().schemaType("home").documentId("home")),
+            S.documentTypeListItem("blog").title("Blog"),
+            S.listItem()
               .title("Settings")
               .id("settings")
               .child(
                 S.document().schemaType("settings").documentId("settings")
               ),
-            S.listItem()
-              .title("Home")
-              .id("home")
-              .child(S.document().schemaType("home").documentId("home")),
-            S.documentTypeListItem("blog").title("Blog"),
           ]),
     }),
     visionTool(),

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import ProgressBar from "./(site)/components/process-bar";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -20,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} font-sans antialiased`}>
-        {children}
+        <ProgressBar>{children}</ProgressBar>
       </body>
     </html>
   );
