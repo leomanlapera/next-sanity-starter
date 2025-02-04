@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import ProgressBar from "./(site)/components/process-bar";
+import ProgressBar from "./components/process-bar";
 
 const inter = Inter({
   variable: "--font-inter",

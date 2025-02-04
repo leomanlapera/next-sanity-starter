@@ -3,8 +3,8 @@ import { notFound } from "next/navigation";
 import { sanityFetch } from "@/sanity/lib/live";
 import { HOME_QUERY } from "@/sanity/lib/queries";
 import { Home } from "@/sanity.types";
-import Wrapper from "./components/wrapper";
-import Heading from "./components/heading";
+import Wrapper from "../components/wrapper";
+import Heading from "../components/heading";
 
 export default async function Index() {
   const { data: page } = await sanityFetch<Home>({ query: HOME_QUERY });
