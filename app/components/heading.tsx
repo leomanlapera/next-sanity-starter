@@ -18,7 +18,7 @@ const Heading: React.FC<Props> = ({ children, level = 1, className }) => {
     level === 4 && "text-lg lg:text-xl",
     level === 5 && "text-sm lg:text-lg",
     level === 6 && "text-xs lg:text-base",
-    className
+    className,
   );
 
   return <Tag className={mergedClasses}>{children}</Tag>;
