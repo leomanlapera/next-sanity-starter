@@ -2,6 +2,7 @@ import { SanityLive } from "@/sanity/lib/live";
 import React from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
+import PageTransition from "../components/page-transition";
 
 export default async function RootLayout({
   children,
@@ -11,8 +12,10 @@ export default async function RootLayout({
   return (
     <React.Fragment>
       <Header />
-      <main>{children}</main>
-      <Footer />
+      <PageTransition>
+        <main>{children}</main>
+        <Footer />
+      </PageTransition>
       <SanityLive />
     </React.Fragment>
   );
